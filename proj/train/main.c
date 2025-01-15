@@ -6,37 +6,59 @@
 /*   By: cglavieu <cglavieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 11:48:55 by cglavieu          #+#    #+#             */
-/*   Updated: 2025/01/15 12:19:49 by cglavieu         ###   ########.fr       */
+/*   Updated: 2025/01/15 17:24:55 by cglavieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-typedef		struct	s_data
-{
-		int		km;
-		int		price;
-		int		index;
+#include <stdio.h>
+#include <fcntl.h>
 
-		t_data	*next;
-}					t_data;
+/*
 
-void	push_data(t_data *data_list, t_data data)
+index	| km		| price
+0		| 240000	| 3650
+
+
+*/
+
+typedef struct	s_key
 {
-	data.next = data_list;
-	data_list = &data;
+	int kms;
+	int eur;
+}				t_key;
+
+void	linearRegression(t_key *keys)
+{
+	//body
 }
 
-t_data	pop_data(t_data *data_list)
+t_key	*keysFromFile(int fd)
 {
-	t_data	ret;
+	t_key	*keys = NULL;
 
-	ret = *data_list;
-	data_list = ret.next;
-	return (ret);
+	//body
+	return (keys);
+}
+
+int		openFile(char *path)
+{
+	return (open(path, O_RDONLY));
 }
 
 int		main(int ac, char **av)
 {
-	t_data *data_list;
+	if (ac == 2)
+	{
+		int		fd;
+		t_key	*keys;
 
+		fd = openFile(av[1]);
+		if (fd != -1)
+			return (-1);
+		keys = keyFromFile(fd);
+		if (keys == NULL)
+			return (-1);
+		linearRegression(keys);
+	}
 	return (0);
 }
