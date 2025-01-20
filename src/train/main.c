@@ -6,12 +6,11 @@
 /*   By: cglavieu <cglavieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 11:48:55 by cglavieu          #+#    #+#             */
-/*   Updated: 2025/01/15 17:24:55 by cglavieu         ###   ########.fr       */
+/*   Updated: 2025/01/20 12:18:54 by cglavieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <fcntl.h>
+#include <train.h>
 
 /*
 
@@ -21,44 +20,25 @@ index	| km		| price
 
 */
 
-typedef struct	s_key
-{
-	int kms;
-	int eur;
-}				t_key;
+// char	**getdatafromfile(char **av)
+// {
+// 	size_t	line_count;
+// 	int		fd;
 
-void	linearRegression(t_key *keys)
-{
-	//body
-}
-
-t_key	*keysFromFile(int fd)
-{
-	t_key	*keys = NULL;
-
-	//body
-	return (keys);
-}
-
-int		openFile(char *path)
-{
-	return (open(path, O_RDONLY));
-}
+// 	line_count = ft_filelinecount(av[1]);
+// 	fd = ft_fileopenr(av[1]);
+// 	if (fd == -1)
+// 		return (-1);
+// 	printf("linecount:%zu\n", line_count);
+// }
 
 int		main(int ac, char **av)
 {
+	char	**data;
+
 	if (ac == 2)
 	{
-		int		fd;
-		t_key	*keys;
-
-		fd = openFile(av[1]);
-		if (fd != -1)
-			return (-1);
-		keys = keyFromFile(fd);
-		if (keys == NULL)
-			return (-1);
-		linearRegression(keys);
+		data = getdatafromfile(av);
 	}
 	return (0);
 }
