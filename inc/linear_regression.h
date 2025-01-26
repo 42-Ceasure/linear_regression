@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   predict.h                                          :+:      :+:    :+:   */
+/*   linear_regression.h                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cglavieu <cglavieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/20 08:52:08 by cglavieu          #+#    #+#             */
-/*   Updated: 2025/01/23 15:16:39 by cglavieu         ###   ########.fr       */
+/*   Created: 2025/01/23 15:03:02 by cglavieu          #+#    #+#             */
+/*   Updated: 2025/01/23 15:05:47 by cglavieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PREDICT_H
-# define PREDICT_H
+#ifndef LINEAR_REGRESSION_H
+# define LINEAR_REGRESSION_H
 
-#include <linear_regression.h>
+#include <libft.h>
+#include <string.h>
+#include <fcntl.h>
+#include <limits.h>
 
-int		parse_theta_line(char *line, t_data *datas);
-int		parse_theta_file(int fd, t_data *datas);
-int		getdatafromfile(char *av, t_data *datas);
+#define DEBUG 1
 
-void	estimatePrice(int mileAge, t_data datas);
-int		promptForMileage(void);
+typedef struct	s_data
+{
+	double	min_km;
+	double	max_km;
+	double	min_price;
+	double	max_price;
+	double	theta_0;
+	double	theta_1;
+}				t_data;
 
 #endif

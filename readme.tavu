@@ -1,0 +1,82 @@
+
+Objectif :
+
+Créer deux programmes distincts pour établir et utiliser un modèle de régression
+linéaire.
+
+Programme 1 : Entraînement du modèle
+
+    Entrée :
+    Un fichier contenant un ensemble de données sous forme de paires (x,y), où :
+        (x) représente les kilomètres parcourus.
+        (y) représente le prix associé.
+
+    Sortie :
+    Les paramètres (a) et​ (b) calculés à partir des données.
+
+    Objectif :
+    Minimiser l’erreur quadratique moyenne (Mean Squared Error, MSE) pour 
+	trouver la meilleure droite y=ax+by=ax+b qui représente les données.
+
+Programme 2 : Utilisation du modèle (prédiction)
+
+    Entrée :
+        Les paramètres (a)​ et (b)​ obtenus lors de l'entraînement.
+        Une valeur donnée de (x) (par exemple, un kilométrage spécifique).
+
+    Sortie :
+    La valeur prédite de (y) (le prix correspondant au kilométrage donné).
+
+    Objectif :
+    Appliquer la fonction (y)=(a)(x)+(b)​ pour estimer y à partir de (x).
+
+Logique du Programme 1 :
+
+    Début
+    Lancement du programme.
+
+    Lire le fichier
+    Charger les données depuis un fichier (par exemple, Data.csv). Cela inclut 
+	l'extraction des paires (x,y) (kilométrage et prix) dans un format structuré
+	et utilisable en mémoire.
+
+    Optionnel : Normaliser les données
+    Si nécessaire, ajuster les échelles des données (par exemple, mettre les
+	kilomètres entre 0 et 1) pour simplifier les calculs ou éviter des problèmes
+	de précision.
+
+    Calculer les paramètres
+    Appliquer une méthode analytique ou itérative (par exemple, la méthode des
+	moindres carrés ou la descente de gradiants) pour déterminer les valeurs
+	optimales de (a)​ et (b)​ à partir des données.
+
+    Écrire les résultats
+    Sauvegarder les valeurs calculées ( (a)​ et (b)​ ) dans un fichier (par
+	exemple, coef.val) pour une utilisation future dans le Programme 2.
+
+    Fin
+    Terminer le programme proprement.
+
+Logique du Programme 2 : Utilisation du modèle (prédiction)
+
+    Début
+    Lancement du programme.
+
+    Lire le fichier
+    Charger les données calculées depuis le fichier (par exemple, coef.val).
+	Cela inclut l'extraction des coefficients aa (pente) et bb (ordonnée à
+	l'origine) dans un format structuré et utilisable en mémoire.
+
+    Demander un kilométrage à l'utilisateur
+    Demander à l'utilisateur de saisir un kilométrage spécifique xx pour lequel
+	il souhaite obtenir une estimation de prix.
+
+    Calculer le prix correspondant
+    Appliquer la formule y=a⋅x+by=a⋅x+b pour calculer le prix estimé
+	correspondant au kilométrage donné.
+
+    Afficher le résultat
+    Afficher à l'utilisateur le prix prédit yy pour le kilométrage xx fourni.
+
+    Fin
+    Terminer le programme proprement.

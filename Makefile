@@ -6,7 +6,7 @@
 #    By: cglavieu <cglavieu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/20 08:21:34 by cglavieu          #+#    #+#              #
-#    Updated: 2025/01/20 12:13:03 by cglavieu         ###   ########.fr        #
+#    Updated: 2025/01/23 15:18:26 by cglavieu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ DEBUG				=	true
 # *** NAME ******************************************************************* #
 PREDICT				=	predict
 TRAIN				=	train
+FILE				=	theta_val
 
 # *** INCLUDELFT ************************************************************* #
 LFTDIR				=	./libft/
@@ -37,12 +38,12 @@ SRCDIR				=	./src/
 # *** FT_PREDICT		*** #
 PREDICTDIRNAME		=	predict/
 PREDICTDIRPATH		=	$(addprefix $(SRCDIR),$(PREDICTDIRNAME))
-PREDICTSOURCES		=	main.c
+PREDICTSOURCES		=	main.c			parse.c			estimate.c
 PREDICTFILESPATH	=	$(addprefix $(PREDICTDIRPATH),$(PREDICTSOURCES))
 # *** FT_TRAIN	*** #
 TRAINDIRNAME		=	train/
 TRAINDIRPATH		=	$(addprefix $(SRCDIR),$(TRAINDIRNAME))
-TRAINSOURCES		=	main.c
+TRAINSOURCES		=	main.c			parse.c			regression.c
 TRAINFILESPATH		=	$(addprefix $(TRAINDIRPATH),$(TRAINSOURCES))
 
 # *** BINARIES *************************************************************** #
@@ -84,6 +85,7 @@ clean				:
 fclean				:	clean
 						@rm -f $(PREDICT)
 						@rm -f $(TRAIN)
+						@rm -f $(FILE)
 						@make -s -C $(LFTDIR) fclean
 
 re					:	fclean all
