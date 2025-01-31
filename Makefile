@@ -6,7 +6,7 @@
 #    By: cglavieu <cglavieu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/20 08:21:34 by cglavieu          #+#    #+#              #
-#    Updated: 2025/01/31 16:53:23 by cglavieu         ###   ########.fr        #
+#    Updated: 2025/01/31 16:55:43 by cglavieu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,12 +35,12 @@ INCDIR				=	./inc/
 
 # *** SOURCES **************************************************************** #
 SRCDIR				=	./src/
-# *** FT_PREDICT		*** #
+# *** FT_PREDICT	*** #
 PREDICTDIRNAME		=	predict/
 PREDICTDIRPATH		=	$(addprefix $(SRCDIR),$(PREDICTDIRNAME))
 PREDICTSOURCES		=	main.c			parse.c			estimate.c
 PREDICTFILESPATH	=	$(addprefix $(PREDICTDIRPATH),$(PREDICTSOURCES))
-# *** FT_TRAIN	*** #
+# *** FT_TRAIN		*** #
 TRAINDIRNAME		=	train/
 TRAINDIRPATH		=	$(addprefix $(SRCDIR),$(TRAINDIRNAME))
 TRAINSOURCES		=	main.c			parse.c			regression.c	\
@@ -49,11 +49,11 @@ TRAINFILESPATH		=	$(addprefix $(TRAINDIRPATH),$(TRAINSOURCES))
 
 # *** BINARIES *************************************************************** #
 OBJDIR				=	./obj/
-# *** FT_PREDICT		*** #
+# *** FT_PREDICT	*** #
 PREDICTOBJDIR		=	$(addprefix $(OBJDIR),$(PREDICTDIRNAME))
 PREDICTOBJECTS		=	$(PREDICTSOURCES:.c=.o)
 PREDICTOBJFILES		=	$(addprefix $(PREDICTOBJDIR),$(PREDICTOBJECTS))
-# *** FT_TRAIN	*** #
+# *** FT_TRAIN		*** #
 TRAINOBJDIR			=	$(addprefix $(OBJDIR),$(TRAINDIRNAME))
 TRAINOBJECTS		=	$(TRAINSOURCES:.c=.o)
 TRAINOBJFILES		=	$(addprefix $(TRAINOBJDIR),$(TRAINOBJECTS))
@@ -70,11 +70,11 @@ $(PREDICT)			:	$(PREDICTOBJFILES) $(LFTBINFILE)
 $(TRAIN)			:	$(TRAINOBJFILES) $(LFTBINFILE)
 						$(CC) $(CFLAG) -L $(LFTDIR) -lft $^ -o $@ -lm
 
-# *** FT_PREDICT		*** #
+# *** FT_PREDICT	*** #
 $(PREDICTOBJDIR)%.o	:	$(PREDICTDIRPATH)%.c
 						@mkdir -p $(OBJDIR) $(PREDICTOBJDIR)
 						@$(CC) $(CFLAG) -I $(INCDIR) -I $(INCLFT) -c $< -o $@
-# *** FT_TRAIN	*** #
+# *** FT_TRAIN		*** #
 $(TRAINOBJDIR)%.o	:	$(TRAINDIRPATH)%.c
 						@mkdir -p $(OBJDIR) $(TRAINOBJDIR)
 						@$(CC) $(CFLAG) -I $(INCDIR) -I $(INCLFT) -c $< -o $@
