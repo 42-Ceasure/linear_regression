@@ -6,7 +6,7 @@
 /*   By: cglavieu <cglavieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 15:03:02 by cglavieu          #+#    #+#             */
-/*   Updated: 2025/01/23 15:05:47 by cglavieu         ###   ########.fr       */
+/*   Updated: 2025/01/27 15:54:13 by cglavieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct	s_data
 	double	max_km;
 	double	min_price;
 	double	max_price;
+	size_t	car_count;
 	double	theta_0;
 	double	theta_1;
 }				t_data;

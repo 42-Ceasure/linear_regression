@@ -6,7 +6,7 @@
 /*   By: cglavieu <cglavieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 15:07:29 by cglavieu          #+#    #+#             */
-/*   Updated: 2025/01/23 15:19:54 by cglavieu         ###   ########.fr       */
+/*   Updated: 2025/01/31 14:03:15 by cglavieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,23 @@ int parse_line(char *line, double *mile_age, double *price)
 		printf("Invalid price value: %s\n", token ? token : "NULL");
 		return (0);
 	}
-	*price = (int)ft_atoi(token);
+	*price = ft_atoi(token);
 	return (1);
 }
 
-t_car	*parse_file(int fd, t_car *cars)
+void	update_datas(t_car car, t_data *datas)
+{
+	if (datas->min_km > car.km)
+		datas->min_km = car.km;
+	if (datas->min_price > car.price)
+		datas->min_price = car.price;
+	if (datas->max_km < car.km)
+		datas->max_km = car.km;
+	if (datas->max_price < car.price)
+		datas->max_price = car.price;
+}
+
+t_car	*parse_file(int fd, t_car *cars, t_data *datas)
 {
 	t_car	car;
 	char	*line;
@@ -47,56 +59,16 @@ t_car	*parse_file(int fd, t_car *cars)
 			free(line);
 			continue ;
 		}
-		printf("Mileage: %f, Price: %f\n", car.km, car.price);
+		update_datas(car, datas);
 		free(line);
 		cars[i++] = car;
 	}
 	if (i > 0)
 	{
+		datas->car_count = i;
 		cars[i].km = -1;
 		cars[i].price = -1;
 	}
 	close(fd);
-	return (cars);
-}
-
-t_car	*allocate_cars(size_t line_count)
-{
-	t_car	*cars;
-
-	cars = (t_car *)malloc(sizeof(t_car) * (line_count + 1));
-	if (cars == NULL)
-	{
-		printf("Error on memory allocation.\n");
-		return (NULL);
-	}
-	return (cars);
-}
-
-t_car	*getdatafromfile(char *av)
-{
-	int		fd;
-	int		line_count;
-	t_car	*cars;
-
-	line_count = ft_filelinecount(av);
-	if (line_count <= 0)
-		return (NULL);
-	cars = allocate_cars(line_count);
-	if (cars == NULL)
-		return (NULL);
-	fd = ft_fileopenr(av);
-	if (fd == -1)
-	{
-		free(cars);
-		return (NULL);
-	}
-	cars = parse_file(fd, cars);
-	if (!cars)
-	{
-		printf("No valid data in fd.\n");
-		free(cars);
-		return (NULL);
-	}	
 	return (cars);
 }

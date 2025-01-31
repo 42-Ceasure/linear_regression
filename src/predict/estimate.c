@@ -6,7 +6,7 @@
 /*   By: cglavieu <cglavieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 15:14:37 by cglavieu          #+#    #+#             */
-/*   Updated: 2025/01/23 15:15:16 by cglavieu         ###   ########.fr       */
+/*   Updated: 2025/01/31 15:00:15 by cglavieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	estimatePrice(int mileAge, t_data datas)
 
 	estimatePrice = datas.theta_0 + (datas.theta_1 * mileAge);
 	printf("Estimated Price for mileage %d: %.2f\n", mileAge, estimatePrice);
+	if (estimatePrice < 0)
+		printf("(maybe if you sell it to a museum ?)\n");
 }
 
 int		promptForMileage(void)
@@ -28,11 +30,17 @@ int		promptForMileage(void)
 	mileAge = 0;
 	while (mileAge <= 0)
 	{
-		printf("requested mileage.\n");
+		printf("requested mileage. (exit for leave)\n");
 		if (get_next_line(0, &line) == -1)
 			return (-1);
+		if (!ft_strcmp(line, "exit\n"))
+		{
+			free(line);
+			return (0);
+		}
+		if (ft_isvalidint(line) != 1)
+			printf("mileage should be a valid positive integer\n");
 		mileAge = ft_atoi(line);
-		printf("mileage=%d\n", mileAge);
 		free(line);
 	}
 	return (mileAge);

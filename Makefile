@@ -6,7 +6,7 @@
 #    By: cglavieu <cglavieu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/20 08:21:34 by cglavieu          #+#    #+#              #
-#    Updated: 2025/01/23 15:18:26 by cglavieu         ###   ########.fr        #
+#    Updated: 2025/01/30 17:15:09 by cglavieu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,8 @@ PREDICTFILESPATH	=	$(addprefix $(PREDICTDIRPATH),$(PREDICTSOURCES))
 # *** FT_TRAIN	*** #
 TRAINDIRNAME		=	train/
 TRAINDIRPATH		=	$(addprefix $(SRCDIR),$(TRAINDIRNAME))
-TRAINSOURCES		=	main.c			parse.c			regression.c
+TRAINSOURCES		=	main.c			parse.c			regression.c	\
+						files.c			normalisation.c
 TRAINFILESPATH		=	$(addprefix $(TRAINDIRPATH),$(TRAINSOURCES))
 
 # *** BINARIES *************************************************************** #
@@ -67,7 +68,7 @@ $(PREDICT)			:	$(PREDICTOBJFILES) $(LFTBINFILE)
 						$(CC) $(CFLAG) -L $(LFTDIR) -lft $^ -o $@
 
 $(TRAIN)			:	$(TRAINOBJFILES) $(LFTBINFILE)
-						$(CC) $(CFLAG) -L $(LFTDIR) -lft $^ -o $@
+						$(CC) $(CFLAG) -L $(LFTDIR) -lft $^ -o $@ -lm
 
 # *** FT_PREDICT		*** #
 $(PREDICTOBJDIR)%.o	:	$(PREDICTDIRPATH)%.c
