@@ -6,15 +6,15 @@
 #    By: cglavieu <cglavieu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/20 08:21:34 by cglavieu          #+#    #+#              #
-#    Updated: 2025/01/30 17:15:09 by cglavieu         ###   ########.fr        #
+#    Updated: 2025/01/31 16:52:48 by cglavieu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 DEBUG				=	true
 
 # *** NAME ******************************************************************* #
-PREDICT				=	predict
-TRAIN				=	train
+PREDICT				=	prog_predict
+TRAIN				=	prog_train
 FILE				=	theta_val
 
 # *** INCLUDELFT ************************************************************* #
