@@ -6,7 +6,7 @@
 /*   By: cglavieu <cglavieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 11:48:55 by cglavieu          #+#    #+#             */
-/*   Updated: 2025/01/31 14:08:31 by cglavieu         ###   ########.fr       */
+/*   Updated: 2025/01/31 16:44:01 by cglavieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,8 @@ int		main(int ac, char **av)
 	if (ac == 2)
 	{
 		cars = getdatafromfile(av[1], &datas);
-		// print_datas(datas, cars);
+		if (DEBUG)
+			print_datas(datas, cars);
 		if (cars != NULL)
 		{
 			train_model(rules, datas, cars, &result);

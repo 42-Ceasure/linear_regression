@@ -6,27 +6,33 @@
 /*   By: cglavieu <cglavieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 15:07:29 by cglavieu          #+#    #+#             */
-/*   Updated: 2025/01/31 14:03:15 by cglavieu         ###   ########.fr       */
+/*   Updated: 2025/01/31 16:44:01 by cglavieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <train.h>
 
-int parse_line(char *line, double *mile_age, double *price)
+int		parse_line(char *line, double *mile_age, double *price)
 {
-	char *token;
+	char	*token;
 
 	token = strtok(line, ",\n");
 	if (!ft_isvalidint(token))
 	{
-		printf("Invalid mileage value: %s\n", token ? token : "NULL");
+		if (token)
+			printf("Invalid mileage value: %s\n", token);
+		else
+			printf("Invalid mileage value: %s\n", "NULL");
 		return (0);
 	}
 	*mile_age = (int)ft_atoi(token);
 	token = strtok(NULL, ",\n");
 	if (!ft_isvalidint(token))
 	{
-		printf("Invalid price value: %s\n", token ? token : "NULL");
+		if (token)
+			printf("Invalid price value: %s\n", token);
+		else
+			printf("Invalid price value: %s\n", "NULL");
 		return (0);
 	}
 	*price = ft_atoi(token);

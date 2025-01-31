@@ -6,25 +6,26 @@
 /*   By: cglavieu <cglavieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 15:07:50 by cglavieu          #+#    #+#             */
-/*   Updated: 2025/01/31 14:53:59 by cglavieu         ###   ########.fr       */
+/*   Updated: 2025/01/31 16:34:05 by cglavieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <train.h>
 
-double modele(double a, double x, double b)
+double	modele(double a, double x, double b)
 {
 	return (a * x + b);
 }
 
-double cout(t_res *result, t_car *cars, size_t m)
+double	cout(t_res *result, t_car *cars, size_t m)
 {
-	double cout = 0.0;
-	double prediction;
-	double error;
-	size_t i;
-	
+	double	cout;
+	double	prediction;
+	double	error;
+	size_t	i;
+
 	i = 0;
+	cout = 0.0;
 	while (i < m)
 	{
 		prediction = modele(result->theta_1, cars[i].km, result->theta_0);
@@ -35,7 +36,7 @@ double cout(t_res *result, t_car *cars, size_t m)
 	return (cout / (2 * m));
 }
 
-void minimisation(t_res *result, t_car *cars, t_data datas, t_rul rules)
+void	minimisation(t_res *result, t_car *cars, t_data datas, t_rul rules)
 {
 	size_t	i;
 	size_t	iter;
@@ -59,12 +60,12 @@ void minimisation(t_res *result, t_car *cars, t_data datas, t_rul rules)
 		if (iter % 100 == 0)
 			printf("Iteration %zu: a = %.10e, b = %.10e, cost = %.10e\n",
 				iter, result->theta_1, result->theta_0,
-					cout(result, cars, datas.car_count));
+				cout(result, cars, datas.car_count));
 		iter++;
 	}
 }
 
-void train_model(t_rul rules, t_data datas, t_car *cars, t_res *result)
+void	train_model(t_rul rules, t_data datas, t_car *cars, t_res *result)
 {
 	t_norm	norm;
 

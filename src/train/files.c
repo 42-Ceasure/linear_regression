@@ -6,7 +6,7 @@
 /*   By: cglavieu <cglavieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 16:36:28 by cglavieu          #+#    #+#             */
-/*   Updated: 2025/01/31 13:52:59 by cglavieu         ###   ########.fr       */
+/*   Updated: 2025/01/31 16:26:00 by cglavieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ t_car	*getdatafromfile(char *av, t_data *datas)
 		printf("No valid data in fd.\n");
 		free(cars);
 		return (NULL);
-	}	
+	}
 	return (cars);
 }
 
@@ -63,15 +63,15 @@ void	save_theta(t_res result)
 	else
 	{
 		if (dprintf(fd, "%f,%f\n",
-			result.theta_0,
-			result.theta_1) < 0)
+				result.theta_0,
+				result.theta_1) < 0)
 			perror("Error writing to file");
 		else
 		{
 			printf("Theta values and normalization data saved:\n");
 			printf("Theta_0: %f, Theta_1: %f\n",
-					result.theta_0,
-					result.theta_1);
+				result.theta_0,
+				result.theta_1);
 		}
 		close(fd);
 	}

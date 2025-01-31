@@ -6,29 +6,25 @@
 /*   By: cglavieu <cglavieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 15:03:02 by cglavieu          #+#    #+#             */
-/*   Updated: 2025/01/27 15:54:13 by cglavieu         ###   ########.fr       */
+/*   Updated: 2025/01/31 16:44:04 by cglavieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LINEAR_REGRESSION_H
 # define LINEAR_REGRESSION_H
 
-#include <libft.h>
-#include <string.h>
-#include <fcntl.h>
-#include <limits.h>
+# include <libft.h>
+# include <string.h>
+# include <fcntl.h>
+# include <limits.h>
+# include <math.h>
 
-#define DEBUG 1
+# define DEBUG	1
 
-typedef struct	s_data
+typedef struct	s_result
 {
-	double	min_km;
-	double	max_km;
-	double	min_price;
-	double	max_price;
-	size_t	car_count;
 	double	theta_0;
 	double	theta_1;
-}				t_data;
+}				t_res;
 
 #endif

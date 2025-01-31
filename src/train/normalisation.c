@@ -6,20 +6,24 @@
 /*   By: cglavieu <cglavieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 16:57:44 by cglavieu          #+#    #+#             */
-/*   Updated: 2025/01/31 14:06:56 by cglavieu         ###   ########.fr       */
+/*   Updated: 2025/01/31 16:30:04 by cglavieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <train.h>
 
-void calculate_stats(t_car *cars, size_t m, t_norm *n)
+void	calculate_stats(t_car *cars, size_t m, t_norm *n)
 {
-	double sum_km = 0.0;
-	double sum_price = 0.0;
-	double sum_km_sq = 0.0;
-	double sum_price_sq = 0.0;
-	size_t i;
+	double	sum_km;
+	double	sum_price;
+	double	sum_km_sq;
+	double	sum_price_sq;
+	size_t	i;
 
+	sum_km = 0.0;
+	sum_price = 0.0;
+	sum_km_sq = 0.0;
+	sum_price_sq = 0.0;
 	i = 0;
 	while (i < m)
 	{
@@ -35,9 +39,9 @@ void calculate_stats(t_car *cars, size_t m, t_norm *n)
 	n->std_eur = sqrt((sum_price_sq / m) - (n->moy_eur * n->moy_eur));
 }
 
-void normalise_datas(t_car *cars, size_t m, t_norm norm)
+void	normalise_datas(t_car *cars, size_t m, t_norm norm)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (i < m)
@@ -48,7 +52,7 @@ void normalise_datas(t_car *cars, size_t m, t_norm norm)
 	}
 }
 
-void denormalise_result(t_res *r, t_norm n)
+void	denormalise_result(t_res *r, t_norm n)
 {
 	double	tmp;
 

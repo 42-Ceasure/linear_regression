@@ -6,29 +6,29 @@
 /*   By: cglavieu <cglavieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 15:14:37 by cglavieu          #+#    #+#             */
-/*   Updated: 2025/01/31 15:00:15 by cglavieu         ###   ########.fr       */
+/*   Updated: 2025/01/31 16:44:01 by cglavieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <predict.h>
 
-void	estimatePrice(int mileAge, t_data datas)
+void	estimate_price(int mile_age, t_res datas)
 {
-	double estimatePrice;
+	double	estimate_price;
 
-	estimatePrice = datas.theta_0 + (datas.theta_1 * mileAge);
-	printf("Estimated Price for mileage %d: %.2f\n", mileAge, estimatePrice);
-	if (estimatePrice < 0)
+	estimate_price = datas.theta_0 + (datas.theta_1 * mile_age);
+	printf("Estimated Price for mileage %d: %.2f\n", mile_age, estimate_price);
+	if (estimate_price < 0)
 		printf("(maybe if you sell it to a museum ?)\n");
 }
 
-int		promptForMileage(void)
+int		prompt_for_mileage(void)
 {
-	int		mileAge;
+	int		mile_age;
 	char	*line;
 
-	mileAge = 0;
-	while (mileAge <= 0)
+	mile_age = 0;
+	while (mile_age <= 0)
 	{
 		printf("requested mileage. (exit for leave)\n");
 		if (get_next_line(0, &line) == -1)
@@ -40,8 +40,8 @@ int		promptForMileage(void)
 		}
 		if (ft_isvalidint(line) != 1)
 			printf("mileage should be a valid positive integer\n");
-		mileAge = ft_atoi(line);
+		mile_age = ft_atoi(line);
 		free(line);
 	}
-	return (mileAge);
+	return (mile_age);
 }

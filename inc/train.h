@@ -6,18 +6,14 @@
 /*   By: cglavieu <cglavieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 08:51:18 by cglavieu          #+#    #+#             */
-/*   Updated: 2025/01/31 14:00:53 by cglavieu         ###   ########.fr       */
+/*   Updated: 2025/01/31 16:45:17 by cglavieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TRAIN_H
 # define TRAIN_H
 
-# include <libft.h>
-# include <string.h>
-# include <fcntl.h>
-# include <limits.h>
-# include <math.h>
+# include <linear_regression.h>
 
 # define LEARNING_RATE	0.1
 # define ITERATIONS		1000
@@ -50,12 +46,6 @@ typedef struct	s_training_rules
 	size_t	iterations;
 }				t_rul;
 
-typedef struct	s_result
-{
-	double	theta_0;
-	double	theta_1;
-}				t_res;
-
 typedef struct	s_data
 {
 	size_t	car_count;
@@ -75,8 +65,8 @@ void	save_theta(t_res result);
 
 void	print_datas(t_data datas, t_car *car);
 
-void calculate_stats(t_car *cars, size_t m, t_norm *norm);
-void normalise_datas(t_car *cars, size_t m, t_norm norm);
-void denormalise_result(t_res *result, t_norm norm);
+void	calculate_stats(t_car *cars, size_t m, t_norm *norm);
+void	normalise_datas(t_car *cars, size_t m, t_norm norm);
+void	denormalise_result(t_res *result, t_norm norm);
 
 #endif

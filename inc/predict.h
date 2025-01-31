@@ -6,20 +6,20 @@
 /*   By: cglavieu <cglavieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 08:52:08 by cglavieu          #+#    #+#             */
-/*   Updated: 2025/01/23 15:16:39 by cglavieu         ###   ########.fr       */
+/*   Updated: 2025/01/31 16:45:53 by cglavieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PREDICT_H
 # define PREDICT_H
 
-#include <linear_regression.h>
+# include <linear_regression.h>
 
-int		parse_theta_line(char *line, t_data *datas);
-int		parse_theta_file(int fd, t_data *datas);
-int		getdatafromfile(char *av, t_data *datas);
+int		parse_theta_line(char *line, t_res *datas);
+int		parse_theta_file(int fd, t_res *datas);
+int		getdatafromfile(char *av, t_res *datas);
 
-void	estimatePrice(int mileAge, t_data datas);
-int		promptForMileage(void);
+void	estimate_price(int mileAge, t_res datas);
+int		prompt_for_mileage(void);
 
 #endif

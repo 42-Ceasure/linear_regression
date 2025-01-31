@@ -6,16 +6,16 @@
 /*   By: cglavieu <cglavieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 10:04:19 by cglavieu          #+#    #+#             */
-/*   Updated: 2025/01/31 14:33:13 by cglavieu         ###   ########.fr       */
+/*   Updated: 2025/01/31 16:35:23 by cglavieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <predict.h>
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	int mileAge;
-	t_data datas;
+	int		mileage;
+	t_res	datas;
 
 	if (ac == 2)
 	{
@@ -23,13 +23,13 @@ int main(int ac, char **av)
 			return (-1);
 		while (1)
 		{
-			mileAge = promptForMileage();
-			if (mileAge == -1)
+			mileage = prompt_for_mileage();
+			if (mileage == -1)
 				return (-1);
-			else if (mileAge == 0)
+			else if (mileage == 0)
 				break ;
 			else
-				estimatePrice(mileAge, datas);
+				estimate_price(mileage, datas);
 		}
 	}
 	return (0);
