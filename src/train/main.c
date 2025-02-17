@@ -6,7 +6,7 @@
 /*   By: cglavieu <cglavieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 11:48:55 by cglavieu          #+#    #+#             */
-/*   Updated: 2025/01/31 16:44:01 by cglavieu         ###   ########.fr       */
+/*   Updated: 2025/02/17 06:57:28 by cglavieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,20 +58,23 @@ int		main(int ac, char **av)
 	t_car	*cars;
 	t_res	result;
 
+	if (ac != 2)
+	{
+		printf("ERROR : input file missing.\n");
+		printf("usage : ./NAME path/to/file\n");
+		return (-1);
+	}
 	init_datas(&datas);
 	init_rules(&rules);
 	init_result(&result);
-	if (ac == 2)
+	cars = getdatafromfile(av[1], &datas);
+	if (DEBUG && cars != NULL)
+		print_datas(datas, cars);
+	if (cars != NULL)
 	{
-		cars = getdatafromfile(av[1], &datas);
-		if (DEBUG)
-			print_datas(datas, cars);
-		if (cars != NULL)
-		{
-			train_model(rules, datas, cars, &result);
-			save_theta(result);
-		}
-		free(cars);
+		train_model(rules, datas, cars, &result);
+		save_theta(result);
 	}
+	free(cars);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: cglavieu <cglavieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 16:36:28 by cglavieu          #+#    #+#             */
-/*   Updated: 2025/01/31 16:26:00 by cglavieu         ###   ########.fr       */
+/*   Updated: 2025/02/17 06:48:33 by cglavieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ t_car	*getdatafromfile(char *av, t_data *datas)
 		return (NULL);
 	}
 	cars = parse_file(fd, cars, datas);
-	if (!cars)
+	if (datas->car_count == 0)
 	{
 		printf("No valid data in fd.\n");
 		free(cars);

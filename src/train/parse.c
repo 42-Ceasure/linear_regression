@@ -6,7 +6,7 @@
 /*   By: cglavieu <cglavieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 15:07:29 by cglavieu          #+#    #+#             */
-/*   Updated: 2025/01/31 16:44:01 by cglavieu         ###   ########.fr       */
+/*   Updated: 2025/02/17 06:44:50 by cglavieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,12 +69,9 @@ t_car	*parse_file(int fd, t_car *cars, t_data *datas)
 		free(line);
 		cars[i++] = car;
 	}
-	if (i > 0)
-	{
-		datas->car_count = i;
-		cars[i].km = -1;
-		cars[i].price = -1;
-	}
+	datas->car_count = i;
+	cars[i].km = -1;
+	cars[i].price = -1;
 	close(fd);
 	return (cars);
 }
