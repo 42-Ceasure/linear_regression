@@ -6,7 +6,7 @@
 /*   By: cglavieu <cglavieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 11:48:55 by cglavieu          #+#    #+#             */
-/*   Updated: 2025/02/17 06:57:28 by cglavieu         ###   ########.fr       */
+/*   Updated: 2025/02/17 07:18:03 by cglavieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	init_datas(t_data *datas)
 	datas->min_price = INT_MAX;
 }
 
-int		main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_rul	rules;
 	t_data	datas;

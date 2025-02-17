@@ -6,7 +6,7 @@
 /*   By: cglavieu <cglavieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 15:03:02 by cglavieu          #+#    #+#             */
-/*   Updated: 2025/01/31 16:44:04 by cglavieu         ###   ########.fr       */
+/*   Updated: 2025/02/17 07:16:36 by cglavieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 # define DEBUG	1
 
-typedef struct	s_result
+typedef struct s_result
 {
 	double	theta_0;
 	double	theta_1;

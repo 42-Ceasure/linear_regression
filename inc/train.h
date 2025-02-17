@@ -6,7 +6,7 @@
 /*   By: cglavieu <cglavieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 08:51:18 by cglavieu          #+#    #+#             */
-/*   Updated: 2025/01/31 16:45:17 by cglavieu         ###   ########.fr       */
+/*   Updated: 2025/02/17 07:16:59 by cglavieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@
 # define LEARNING_RATE	0.1
 # define ITERATIONS		1000
 
-typedef struct	s_car
+typedef struct s_car
 {
 	double	km;
 	double	price;
 }				t_car;
 
-typedef struct	s_normalise
+typedef struct s_normalise
 {
 	double	moy_km;
 	double	std_km;
@@ -32,7 +32,7 @@ typedef struct	s_normalise
 	double	std_eur;
 }				t_norm;
 
-typedef struct	s_calculate
+typedef struct s_calculate
 {
 	long double	prediction;
 	long double	error;
@@ -40,13 +40,13 @@ typedef struct	s_calculate
 	long double	s_err_b;
 }				t_calc;
 
-typedef struct	s_training_rules
+typedef struct s_training_rules
 {
 	double	learning_rate;
 	size_t	iterations;
 }				t_rul;
 
-typedef struct	s_data
+typedef struct s_data
 {
 	size_t	car_count;
 	double	min_km;

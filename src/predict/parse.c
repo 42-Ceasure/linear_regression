@@ -6,13 +6,13 @@
 /*   By: cglavieu <cglavieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 15:08:59 by cglavieu          #+#    #+#             */
-/*   Updated: 2025/01/31 16:44:01 by cglavieu         ###   ########.fr       */
+/*   Updated: 2025/02/17 07:18:31 by cglavieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <predict.h>
 
-int		parse_theta_line(char *line, t_res *datas)
+int	parse_theta_line(char *line, t_res *datas)
 {
 	char	*token;
 
@@ -39,7 +39,7 @@ int		parse_theta_line(char *line, t_res *datas)
 	return (1);
 }
 
-int		parse_theta_file(int fd, t_res *datas)
+int	parse_theta_file(int fd, t_res *datas)
 {
 	char	*line;
 	int		ret;
@@ -64,7 +64,7 @@ int		parse_theta_file(int fd, t_res *datas)
 	return (1);
 }
 
-int		getdatafromfile(char *av, t_res *datas)
+int	getdatafromfile(char *av, t_res *datas)
 {
 	int		fd;
 

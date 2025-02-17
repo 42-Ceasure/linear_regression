@@ -6,13 +6,13 @@
 /*   By: cglavieu <cglavieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 15:07:29 by cglavieu          #+#    #+#             */
-/*   Updated: 2025/02/17 06:44:50 by cglavieu         ###   ########.fr       */
+/*   Updated: 2025/02/17 07:17:52 by cglavieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <train.h>
 
-int		parse_line(char *line, double *mile_age, double *price)
+int	parse_line(char *line, double *mile_age, double *price)
 {
 	char	*token;
 

@@ -6,7 +6,7 @@
 /*   By: cglavieu <cglavieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 15:14:37 by cglavieu          #+#    #+#             */
-/*   Updated: 2025/02/17 07:11:30 by cglavieu         ###   ########.fr       */
+/*   Updated: 2025/02/17 07:18:56 by cglavieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	estimate_price(int mile_age, t_res datas)
 		printf("(Does it still run ? Try to sell it to a museum...)\n");
 }
 
-int		prompt_for_mileage(void)
+int	prompt_for_mileage(void)
 {
 	int		mile_age;
 	char	*line;
